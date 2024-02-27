@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaGoogle, FaFacebook } from "react-icons/fa";
 import './login.css';
 
 
@@ -19,7 +20,7 @@ const Login = ()=> {
 
   return (
     <div>
-      <h1>Login</h1>
+      <h1>tasks</h1>
 
       <form className="form" onSubmit={handleLogin}>
         <span>E-mail</span>
@@ -40,7 +41,9 @@ const Login = ()=> {
       </form>
 
       <button>Forgot password?</button>
-      
+      <button className="icons"><FaGoogle/></button>
+      <button className="icons"><FaFacebook/></button>
+      <button>Create an account</button>
     </div>
   )
 };
