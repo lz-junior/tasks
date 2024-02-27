@@ -25,12 +25,13 @@ const Login = ()=> {
       <form className="form" onSubmit={handleLogin}>
         <span>E-mail</span>
         <input
+          className="input-email"
           type='text' 
           placeholder='abc@email.com'
           value={email} 
           onChange={(e)=> setEmail(e.target.value)}/>
 
-        <span>Password</span>
+        <span className="span-password">Password</span>
         <input
           type='password' 
           placeholder='******'
@@ -41,8 +42,10 @@ const Login = ()=> {
       </form>
 
       <button>Forgot password?</button>
-      <button className="icons"><FaGoogle/></button>
-      <button className="icons"><FaFacebook/></button>
+      <div>
+        <button className="icons"><FaGoogle/></button>
+        <button className="icons"><FaFacebook/></button>
+      </div>
       <button>Create an account</button>
     </div>
   )
