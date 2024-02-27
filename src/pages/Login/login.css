@@ -1,0 +1,35 @@
+
+
+@media screen and (min-width: 768px) {
+  
+}
+
+* {
+  font-family: "Inter", sans-serif;
+}
+
+
+form > span {
+  color: #cdcdcd;
+  font-size: .8rem;
+}
+
+form > input {
+  width: 70%;
+  height: 38px;
+  border-radius: .3rem;
+  display: flex;
+  border: none;
+  font-size: 1rem;
+  color: #000000;
+}
+
+form > button {
+  width: 70%;
+  height: 28px;
+  margin-top: 32px;
+  border-radius: .3rem;
+  border: none;
+  color: #fff;
+  background-color: #00B2FF;
+}
