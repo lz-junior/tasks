@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { FaGoogle, FaFacebook } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebook } from "react-icons/fa6";
 import './login.css';
 
 
@@ -20,7 +21,7 @@ const Login = ()=> {
 
   return (
     <div>
-      <h1>tasks</h1>
+      <h1 className="title-login">tasks</h1>
 
       <form className="form" onSubmit={handleLogin}>
         <span>E-mail</span>
@@ -41,12 +42,15 @@ const Login = ()=> {
         <button type="submit">Sign In</button>
       </form>
 
-      <button>Forgot password?</button>
-      <div>
-        <button className="icons"><FaGoogle/></button>
-        <button className="icons"><FaFacebook/></button>
+      <div className="section2">
+        <button className="btn-login-create-forgot">Forgot password?</button>
+        <button className="btn-login-create-forgot">Create an account</button>
       </div>
-      <button>Create an account</button>
+
+      <div className="icons">
+        <button><FcGoogle size={55}/></button>
+        <button><FaFacebook size={55}/></button>
+      </div>
     </div>
   )
 };
