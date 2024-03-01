@@ -79,7 +79,58 @@
 
 
 @media screen and (min-width: 768px) {
+  /* tablet */
   .title-login {
     color: red;
+  }
+
+  .form {
+    margin-top: 15%;
+  }
+  .form > input {
+    width: 60%;
+    height: 48px;
+  }
+}
+
+
+@media screen and (min-width: 1024px) {
+  /* desktop */
+  .title-login {
+    color: green;
+  }
+
+  .form {
+    margin-top: 7%;
+  }
+  .form > span {
+    font-size: 1.2rem;
+  }
+  .form > input {
+    width: 30%;
+    font-size: 1.2rem;
+  }
+  .form > button {
+    font-size: 1.2rem;
+  }
+
+  .btn-login-create-forgot {
+    font-size: 1.2rem;
+  }
+
+  .icons {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-top: 82px;
+  }
+
+
+
+}
+
+@media screen and (min-width: 1200px) {
+  .title-login {
+    color: blue;
   }
 }
