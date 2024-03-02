@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa6";
 import './login.css';
@@ -8,16 +9,23 @@ const Login = ()=> {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const navigate = useNavigate();
+
 
   function handleLogin(e: any) {
     e.preventDefault();
-    if (email !== '' && password !== '') {
-      alert("login realizado")
+
+    !email || !password ? alert("Preenchas os campos") : alert("OKOKOK")
+
+    if (email !== 'teste@teste.com' && password !== '123123' ) {
+      alert("e-mail e/ou senha inválido")
     } else {
-      alert("PREENCHA OS CAMPOS PARA FAZER O LOGIN")
+      navigate('/');
+      alert("login realizado")
     }
   }
 
+  
 
   return (
     <div>
@@ -29,19 +37,20 @@ const Login = ()=> {
         <input
           className="input-email"
           type='text' 
-          placeholder='abc@email.com'
+          placeholder='teste@teste.com'
           value={email} 
           onChange={(e)=> setEmail(e.target.value)}/>
 
         <span className="span-password">Password</span>
         <input
           type='password' 
-          placeholder='******'
+          placeholder='123123'
           value={password} 
           onChange={(e)=> setPassword(e.target.value)}/>
 
         <button type="submit">Sign in</button>
       </form>
+
 
       <div className="section2">
         <button className="btn-login-create-forgot">Forgot password?</button>
