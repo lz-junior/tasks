@@ -10,6 +10,7 @@
 
 .title-login {
   font-family: "Koulen", sans-serif;
+  color: #003567;
 }
 
 .form {
@@ -22,11 +23,12 @@
 .form > h2 {
   margin-bottom: 42px;
   font-size: 2rem;
+  color: #003567;
 }
 
 .form > span {
-  color: #cdcdcd;
   font-size: 1.5rem;
+  color: #cdcdcd;
 }
 
 .form > input {

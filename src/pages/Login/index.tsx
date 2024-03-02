@@ -15,8 +15,6 @@ const Login = ()=> {
   function handleLogin(e: any) {
     e.preventDefault();
 
-    !email || !password ? alert("Preenchas os campos") : alert("OKOKOK")
-
     if (email !== 'teste@teste.com' && password !== '123123' ) {
       alert("e-mail e/ou senha inválido")
     } else {
@@ -25,7 +23,7 @@ const Login = ()=> {
     }
   }
 
-  
+
 
   return (
     <div>
