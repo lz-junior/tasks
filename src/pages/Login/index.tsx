@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa6";
+import { toast } from 'react-toastify'
 import './login.css';
 
 
@@ -16,10 +17,10 @@ const Login = ()=> {
     e.preventDefault();
 
     if (email !== 'teste@teste.com' && password !== '123123' ) {
-      alert("e-mail e/ou senha inválido")
+      toast.error("invalid email or password!")
     } else {
       navigate('/');
-      alert("login realizado")
+      toast.success("Welcome")
     }
   }
 

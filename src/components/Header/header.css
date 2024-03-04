@@ -12,5 +12,23 @@
   text-align: center;
   font-size: 3rem;
   font-family: "Koulen", sans-serif;
-  color: rgb(0, 195, 255);
+  color: #00c3ff;
+}
+
+@media screen and (min-width: 768px) {
+  .title-header {
+    color: red;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .title-header {
+    color: green;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .title-header {
+    color: blue;
+  }
 }
