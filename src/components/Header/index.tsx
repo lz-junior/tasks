@@ -7,11 +7,11 @@ const Header = ()=> {
   return (
     <div className='div-header'>
       <button>
-        <FaRegUserCircle size={50}/>
+        <IoMenu size={50}/>
       </button>
       <h1 className='title-header'>tasks</h1>
       <button>
-        <IoMenu size={50}/>
+        <FaRegUserCircle size={50}/>
       </button>
     </div>
   )

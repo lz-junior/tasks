@@ -16,7 +16,7 @@ const Login = ()=> {
   function handleLogin(e: any) {
     e.preventDefault();
 
-    if (email !== 'teste@teste.com' && password !== '123123' ) {
+    if (email !== 'teste@teste.com' || password !== '123123' ) {
       toast.error("invalid email or password!")
     } else {
       navigate('/');
