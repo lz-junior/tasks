@@ -1,6 +1,6 @@
 // src/App.tsx
 import React, { useState } from 'react';
-import TaskList from './components/taskList.tsx';
+import TaskList from './components/TaskList.tsx';
 
 
 
@@ -17,14 +17,17 @@ const Home: React.FC = ()=> {
 
   return (
     <div>
-      <h1>Lista de Tarefas</h1>
+      <h1>My lists</h1>
+      
+      <TaskList tasks={tasks} />
+
       <input
         type="text"
         value={newTask}
-        onChange={(e) => setNewTask(e.target.value)}
+        onChange={(e)=> setNewTask(e.target.value)}
+        placeholder="add a new list"
       />
-      <button onClick={handleAddTask}>Adicionar Tarefa</button>
-      <TaskList tasks={tasks} />
+      <button onClick={handleAddTask}>+</button>
     </div>
   );
 };
