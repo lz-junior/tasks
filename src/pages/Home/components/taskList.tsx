@@ -14,9 +14,8 @@ const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
   return (
     <ul>
       {tasks.map((task, index)=> (
-        <li key={index}>{task}</li>
+        <CheckList key={index} task={task}/>
       ))}
-      <button type="button">X</button>
     </ul>
   );
 };
