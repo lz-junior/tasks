@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaTrash } from "react-icons/fa";
 
 
 interface TaskItemProps {
@@ -21,9 +22,10 @@ const CheckList: React.FC<TaskItemProps> = ({ task })=> {
         checked={isChecked}
         onChange={handleCheckboxChange}
       />
-      <span style={{ textDecoration: isChecked ? 'line-through' : 'none' }}>
+      <button style={{ textDecoration: isChecked ? 'line-through' : 'none' }}>
         {task}
-      </span>
+      </button>
+      <button><FaTrash/></button>
     </div>
   );
 }
