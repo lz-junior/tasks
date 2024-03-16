@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  gap: 12px;
+}
+
+.item {
+  background-color: none;
+  border: none;
+}
+
+.itemTrash {
+  background-color: none;
+  border: none;
+}
