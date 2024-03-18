@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { FaTrash } from "react-icons/fa";
 import classes from "./listItem.module.css"
 
 
@@ -15,9 +14,6 @@ const CheckList: React.FC<TaskItemProps> = ({ task })=> {
     setIsChecked(!isChecked);
   }
 
-  const deleteItem = ()=> {
-    // fazer função para deletar itens da lista
-  }
   
   
   return (
@@ -31,11 +27,6 @@ const CheckList: React.FC<TaskItemProps> = ({ task })=> {
         style={{ textDecoration: isChecked ? 'line-through' : 'none' }}
         className={classes.item}>
           {task}
-      </button>
-      <button 
-        className={classes.itemTrash}
-        onChange={deleteItem}>
-          <FaTrash/>
       </button>
     </div>
   );
