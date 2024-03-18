@@ -8,7 +8,8 @@ const Home: React.FC = ()=> {
   const [tasks, setTasks] = useState<string[]>([]);
   const [newTask, setNewTask] = useState<string>('');
 
-  const handleAddTask = () => {
+  const handleAddTask = (e:any) => {
+    e.preventDefault()
     if (newTask.trim() !== '') {
       setTasks((prevTasks) => [...prevTasks, newTask]);
       setNewTask('');
@@ -20,14 +21,15 @@ const Home: React.FC = ()=> {
       <h1>My lists</h1>
       
       <TaskList tasks={tasks} />
-
-      <input
-        type="text"
-        value={newTask}
-        onChange={(e)=> setNewTask(e.target.value)}
-        placeholder="add a new list"
-      />
-      <button onClick={handleAddTask}>+</button>
+      <form onSubmit={handleAddTask}>
+        <input
+          type="text"
+          value={newTask}
+          onChange={(e)=> setNewTask(e.target.value)}
+          placeholder="add a new list"
+          />
+        <button type="submit">+</button>
+      </form>
     </div>
   );
 };
