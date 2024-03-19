@@ -16,7 +16,7 @@ const CheckList: React.FC<TaskItemProps> = ({ task })=> {
     setIsChecked(!isChecked);
   }
   const openTask = ()=> {
-    setOpenTasks(prevOpenTasks => !prevOpenTasks);
+    setOpenTasks(!openTasks);
   }
 
   
@@ -34,7 +34,7 @@ const CheckList: React.FC<TaskItemProps> = ({ task })=> {
         onClick={openTask}>
           {task}
       </button>
-      {openTasks ? <Tasks/> : ""}
+      {openTasks ? <Tasks task={[task]}/> : ""}
     </div>
   );
 }

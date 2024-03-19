@@ -1,10 +1,17 @@
-import classes from "./listItem.module.css";
+import React from "react";
+import ListItem from "./ListItem";
 
+interface TaskListProps {
+  task: string[];
+}
 
-const Tasks = ()=> {
+const Tasks: React.FC<TaskListProps> = ({ task })=> {
   return (
     <div>
-      <h1>Open Tasks</h1>
+      <h3>Tasks</h3>
+      {task.map((task, index)=> (
+        // <ListItem key={index} task={task}/>
+      ))}
     </div>
   );
 }

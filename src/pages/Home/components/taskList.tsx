@@ -11,7 +11,7 @@ interface TaskListProps {
 
 
 
-const TaskList: React.FC<TaskListProps> = ({ tasks }) => {
+const TaskList: React.FC<TaskListProps> = ({ tasks })=> {
   return (
     <ul>
       {tasks.map((task, index)=> (
