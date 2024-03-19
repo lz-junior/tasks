@@ -3,7 +3,7 @@ import classes from "./listItem.module.css";
 
 const Tasks = ()=> {
   return (
-    <div className={classes.divTasks}>
+    <div>
       <h1>Open Tasks</h1>
     </div>
   );
