@@ -28,7 +28,7 @@ const Home: React.FC = ()=> {
           value={task}
           onChange={(e)=> setTask(e.target.value)}
           placeholder="add a new list"
-          />
+        />
         <button type="submit">+</button>
       </form>
     </div>
