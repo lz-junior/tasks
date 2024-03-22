@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import TaskOfTasks from "./TaskOfTasks";
 
 interface TaskListProps {
-  taskType: string[];
+  taskType?: string[];
 }
 
 const Tasks: React.FC<TaskListProps> = ({ taskType })=> {
