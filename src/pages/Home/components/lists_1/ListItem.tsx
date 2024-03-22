@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import classes from "./listItem.module.css"
-import Tasks from './Tasks';
+import classes from "../listItem.module.css"
+import Tasks from '../tasks_2/Tasks';
 
 
 interface TaskItemProps {
@@ -34,7 +34,7 @@ const CheckList: React.FC<TaskItemProps> = ({ task })=> {
         onClick={openTask}>
           {task}
       </button>
-      {openTasks ? <Tasks task={[task]}/> : ""}
+      {openTasks ? <Tasks taskType={[task]}/> : ""}
     </div>
   );
 }

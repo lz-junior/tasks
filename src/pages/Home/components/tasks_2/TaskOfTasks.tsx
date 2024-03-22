@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import classes from "./listItem.module.css"
+import classes from "../listItem.module.css"
 
 
 interface ItemOfTask {
-  tasks: string;
+  tasks: string[];
 }
 
 

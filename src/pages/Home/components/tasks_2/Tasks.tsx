@@ -1,38 +1,39 @@
-// src/App.tsx
-import React, { useState } from 'react';
-import TaskList from './components/lists_1/taskList.tsx';
+import React, {useState} from "react";
+import TaskOfTasks from "./TaskOfTasks";
 
+interface TaskListProps {
+  taskType: string[];
+}
 
-
-const Home: React.FC = ()=> {
+const Tasks: React.FC<TaskListProps> = ({ taskType })=> {
   const [tasks, setTasks] = useState<string[]>([]);
   const [task, setTask] = useState<string>('');
 
   const handleAddTask = (e:any) => {
     e.preventDefault()
     if (task.trim() !== '') {
-      setTasks((prevTasks) => [...prevTasks, task]);
+      setTasks(prevTasks => [...prevTasks, task]);
       setTask('');
     }
   };
 
   return (
     <div>
-      <h1>My lists</h1>
-      
-      <TaskList tasks={tasks} />
-      
+      <h5>Tasks</h5>
+      {taskType.map((task, index)=> (
+        <TaskOfTasks tasks={tasks} />
+      ))}
       <form onSubmit={handleAddTask}>
         <input
           type="text"
+          placeholder="add a new task"
           value={task}
           onChange={(e)=> setTask(e.target.value)}
-          placeholder="add a new list"
         />
         <button type="submit">+</button>
       </form>
     </div>
   );
-};
+}
 
-export default Home;
+export default Tasks;
