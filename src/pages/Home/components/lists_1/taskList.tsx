@@ -16,7 +16,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks })=> {
     <ul>
       {tasks.map((task, index)=> (
         <ListItem key={index} task={task}/>
-        ))}
+      ))}
     </ul>
   );
 };

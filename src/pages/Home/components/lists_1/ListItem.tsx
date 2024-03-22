@@ -34,7 +34,7 @@ const CheckList: React.FC<TaskItemProps> = ({ task })=> {
         onClick={openTask}>
           {task}
       </button>
-      {openTasks ? <Tasks taskType={[task]}/> : ""}
+      {openTasks ? <Tasks taskType={[]}/> : ""}
     </div>
   );
 }

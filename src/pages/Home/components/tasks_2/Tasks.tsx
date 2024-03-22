@@ -20,9 +20,12 @@ const Tasks: React.FC<TaskListProps> = ({ taskType })=> {
   return (
     <div>
       <h5>Tasks</h5>
-      {taskType.map((task, index)=> (
-        <TaskOfTasks tasks={tasks} />
-      ))}
+      <ul>
+        {tasks.map((task, index)=> (
+          <TaskOfTasks key={index} tasks={task} />
+        ))}
+      </ul>
+
       <form onSubmit={handleAddTask}>
         <input
           type="text"

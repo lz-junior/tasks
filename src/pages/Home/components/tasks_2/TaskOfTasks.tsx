@@ -3,10 +3,8 @@ import classes from "../listItem.module.css"
 
 
 interface ItemOfTask {
-  tasks: string[];
+  tasks: string;
 }
-
-
 
 
 const TaskOfTasks: React.FC<ItemOfTask> = ({ tasks })=> {
