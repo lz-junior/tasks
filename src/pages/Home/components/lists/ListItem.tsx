@@ -11,12 +11,16 @@ interface TaskItemProps {
 const CheckList: React.FC<TaskItemProps> = ({ task })=> {
   const [isChecked, setIsChecked] = useState(false);
   const [openTasks, setOpenTasks] = useState(false);
+  const [tasks, setTasks] = useState<string[]>([]);
 
   const handleCheckboxChange = ()=> {
     setIsChecked(!isChecked);
   }
   const openTask = ()=> {
     setOpenTasks(!openTasks);
+  }
+  const handleAddTask = (newTask: string)=> {
+    setTasks(prevTasks => [...prevTasks, newTask])
   }
 
   
@@ -34,8 +38,7 @@ const CheckList: React.FC<TaskItemProps> = ({ task })=> {
         onClick={openTask}>
           {task}
       </button>
-      {openTasks && <Tasks/>}
-      {/* {openTasks ? <Tasks taskType={[]}/> : ""} */}
+      {openTasks && <Tasks saveTask={tasks} onAddTask={handleAddTask} />}
     </div>
   );
 }

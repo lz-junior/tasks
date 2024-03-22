@@ -2,27 +2,41 @@ import React, {useState} from "react";
 import TaskOfTasks from "./TaskOfTasks";
 
 interface TaskListProps {
-  taskType?: string[];
+  saveTask: string[];
+  onAddTask: (newTask: string)=> void;
 }
 
-const Tasks: React.FC<TaskListProps> = ({ taskType })=> {
-  const [tasks, setTasks] = useState<string[]>([]);
+const Tasks: React.FC<TaskListProps> = ({ saveTask, onAddTask })=> {
   const [task, setTask] = useState<string>('');
+  const [isChecked, setIsChecked] = useState<boolean[]>([]);
 
-  const handleAddTask = (e:any) => {
+  const handleAddTask = (e:React.FormEvent) => {
     e.preventDefault()
     if (task.trim() !== '') {
-      setTasks(prevTasks => [...prevTasks, task]);
+      onAddTask(task);
       setTask('');
     }
   };
+  const handleCheckboxChange = (index: number)=> {
+    setIsChecked(prevState => {
+      const newState = [...prevState];
+      newState[index] = !newState[index];
+      return newState;
+    });
+  };
+
 
   return (
     <div>
       <h5>Tasks</h5>
+
       <ul>
-        {tasks.map((task, index)=> (
-          <TaskOfTasks key={index} tasks={task} />
+        {saveTask.map((task, index)=> (
+          <TaskOfTasks 
+            key={index} 
+            tasks={task} 
+            isChecked={isChecked[index] || false} 
+            onCheckboxChange={()=> handleCheckboxChange(index)}/>
         ))}
       </ul>
 
