@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classes from "../listItem.module.css"
-import Tasks from '../tasks_2/Tasks';
+import Tasks from '../tasks/Tasks';
 
 
 interface TaskItemProps {

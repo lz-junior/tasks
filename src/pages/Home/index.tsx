@@ -1,6 +1,6 @@
 // src/App.tsx
 import React, { useState } from 'react';
-import TaskList from './components/lists_1/taskList.tsx';
+import TaskList from './components/lists/taskList.tsx';
 
 
 
