@@ -1,9 +1,7 @@
 import React, {useState} from "react";
+import classes from "./subtask.module.css";
 
 
-// interface SubtaskProps {
-//   subtask: string;
-// }
 
 const SubTask = ()=> {
   const [task, setTask] = useState<any[]>([]);
@@ -25,7 +23,7 @@ const SubTask = ()=> {
       <h4>SubTask</h4>
       <ul>
         {task.map((task: any, index: any)=> (
-          <li key={index}>
+          <li key={index} className={classes.li_subtask}>
             <input 
               type="checkbox" 
               key={index} 
@@ -34,7 +32,8 @@ const SubTask = ()=> {
             <input 
               type="text" 
               key={index} 
-              value={task} 
+              value={task}
+              className={classes.subtask} 
               style={{ textDecoration: isChecked ? 'line-through' : 'none' }}
               readOnly/>
           </li>
@@ -45,8 +44,7 @@ const SubTask = ()=> {
         <input 
           type="text"
           placeholder="add new subtask"
-          name="task"
-        />
+          name="task"/>
         <button type="submit">+</button>
       </form>
     </div>
