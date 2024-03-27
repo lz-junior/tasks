@@ -6,9 +6,17 @@ import React, {useState} from "react";
 // }
 
 const SubTask = ()=> {
-  const [task, setTask] = useState<any>();
-  const addSubtask = ()=> {
+  const [task, setTask] = useState<any[]>([]);
+  const [isChecked, setIsChecked] = useState(false)
 
+  const addSubtask = (e: React.FormEvent<HTMLFormElement>)=> {
+    e.preventDefault();
+
+    setTask([...task, e.currentTarget.task.value]);
+    e.currentTarget.task.value = "";
+  }
+  const onCheckboxChange = ()=> {
+    setIsChecked(!isChecked);
   }
 
 
@@ -16,20 +24,28 @@ const SubTask = ()=> {
     <div>
       <h4>SubTask</h4>
       <ul>
-        {task && task.map((task: any, index: any)=> {
-          <li>
-            <input type="checkbox" key={index}/>
-            <input type="text" key={index} value={task}/>
+        {task.map((task: any, index: any)=> (
+          <li key={index}>
+            <input 
+              type="checkbox" 
+              key={index} 
+              checked={isChecked}
+              onChange={onCheckboxChange}/>
+            <input 
+              type="text" 
+              key={index} 
+              value={task} 
+              style={{ textDecoration: isChecked ? 'line-through' : 'none' }}
+              readOnly/>
           </li>
-        })}
+        ))}
       </ul>
 
       <form onSubmit={addSubtask}>
         <input 
           type="text"
           placeholder="add new subtask"
-          value={task}
-          onChange={(e)=> setTask(e.target.value)}
+          name="task"
         />
         <button type="submit">+</button>
       </form>
