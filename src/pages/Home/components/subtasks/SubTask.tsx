@@ -1,14 +1,18 @@
 import React, {useState} from "react";
 import classes from "./subtask.module.css";
+import { toast } from "react-toastify";
 
 
 
 const SubTask = ()=> {
-  const [task, setTask] = useState<any[]>([]);
+  const [task, setTask] = useState<string[]>([]);
   const [isChecked, setIsChecked] = useState(false)
 
-  const addSubtask = (e: React.FormEvent<HTMLFormElement>)=> {
+  const addSubtask = (e: any)=> {
     e.preventDefault();
+
+    const subtaskEmpty = e.currentTarget.task.value.trim();
+    if (subtaskEmpty === "") return toast.warn("Write a subtask")
 
     setTask([...task, e.currentTarget.task.value]);
     e.currentTarget.task.value = "";
