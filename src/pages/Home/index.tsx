@@ -1,6 +1,8 @@
 // src/App.tsx
 import React, { useState } from 'react';
 import TaskList from './components/lists/taskList.tsx';
+import { IoMdAdd } from "react-icons/io";
+import "./home.css";
 
 
 
@@ -17,8 +19,8 @@ const Home: React.FC = ()=> {
   };
 
   return (
-    <div>
-      <h1>My lists</h1>
+    <div className="container">
+      <h3>My lists</h3>
       
       <TaskList tasks={tasks} />
       
@@ -29,7 +31,7 @@ const Home: React.FC = ()=> {
           onChange={(e)=> setTask(e.target.value)}
           placeholder="add a new list"
         />
-        <button type="submit">+</button>
+        <button type="submit"><IoMdAdd /></button>
       </form>
     </div>
   );
