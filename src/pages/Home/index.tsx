@@ -1,7 +1,7 @@
 // src/App.tsx
 import React, { useState } from 'react';
 import TaskList from './components/lists/taskList.tsx';
-import { IoMdAdd } from "react-icons/io";
+import { IoIosAddCircleOutline  } from "react-icons/io";
 import "./home.css";
 
 
@@ -24,14 +24,14 @@ const Home: React.FC = ()=> {
       
       <TaskList tasks={tasks} />
       
-      <form onSubmit={handleAddTask}>
+      <form onSubmit={handleAddTask} >
         <input
           type="text"
           value={task}
           onChange={(e)=> setTask(e.target.value)}
           placeholder="add a new list"
         />
-        <button type="submit"><IoMdAdd /></button>
+        <button type="submit"><IoIosAddCircleOutline /></button>
       </form>
     </div>
   );
