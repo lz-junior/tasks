@@ -35,3 +35,19 @@
   margin-left: 8px;
   font-size: 3rem;
 }
+
+
+@media screen and (min-width: 768px) {
+  /* tablet */
+  
+}
+
+
+@media screen and (min-width: 1024px) {
+  /* desktop */
+  
+}
+
+@media screen and (min-width: 1200px) {
+  
+}
