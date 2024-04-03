@@ -20,7 +20,7 @@ const Home: React.FC = ()=> {
 
   return (
     <div className="container">
-      <h3>My lists</h3>
+      <h1>My lists</h1>
       
       <TaskList tasks={tasks} />
       
