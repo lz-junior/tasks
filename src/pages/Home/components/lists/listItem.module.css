@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  width: 600px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.050);
+}
+
+.item {
+  background: none;
+  border: none;
+}

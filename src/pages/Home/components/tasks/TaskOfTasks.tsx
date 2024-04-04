@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import classes from "../listItem.module.css"
+import classes from "./tasks.module.css"
 import SubTask from '../subtasks/SubTask';
 
 

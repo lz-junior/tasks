@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import classes from "../listItem.module.css"
+import classes from "./listItem.module.css"
 import Tasks from '../tasks/Tasks';
 
 
@@ -26,9 +26,10 @@ const CheckList: React.FC<TaskItemProps> = ({ task })=> {
   
   
   return (
-    <div className={classes.container}>
+    <li className={classes.container}>
       <input
         type="checkbox"
+        className={classes.checkbox}
         checked={isChecked}
         onChange={handleCheckboxChange}
       />
@@ -39,7 +40,7 @@ const CheckList: React.FC<TaskItemProps> = ({ task })=> {
           {task}
       </button>
       {openTasks && <Tasks saveTask={tasks} onAddTask={handleAddTask} />}
-    </div>
+    </li>
   );
 }
 
