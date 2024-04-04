@@ -34,7 +34,9 @@ const CheckList: React.FC<TaskItemProps> = ({ task })=> {
         onChange={handleCheckboxChange}
       />
       <button 
-        style={{ textDecoration: isChecked ? 'line-through' : 'none' }}
+        style={{ 
+          textDecoration: isChecked ? 'line-through' : 'none',
+          opacity: isChecked ? '0.4' : '1' }}
         className={classes.item}
         onClick={openTask}>
           {task}
