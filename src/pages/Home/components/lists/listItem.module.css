@@ -8,7 +8,7 @@
   width: 600px;
   height: 38px;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.050);
+  background-color: rgba(0, 0, 0, 0.200);
 }
 
 .container > input[type="checkbox"] {

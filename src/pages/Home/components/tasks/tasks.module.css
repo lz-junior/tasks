@@ -1,8 +1,30 @@
 .item {
   background-color: none;
   border: none;
+  
 }
 
+.container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  width: 550px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.100);
+}
+.container > input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+.container > button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+}
 .form {
   display: flex;
   margin-top: 8px;
@@ -17,7 +39,7 @@
   border-right: none;
   border-radius: 5px;
   font-size: 1.2rem;
-  background-color: rgba(0, 0, 0, 0.060);
+  background-color: rgba(0, 0, 0, 0.050);
 }
 
 .form > button {
@@ -25,4 +47,13 @@
   border: none;
   margin-left: 8px;
   font-size: 1.5rem;
+}
+
+
+
+.containerTasks {
+  background-color: rgba(0, 23, 88, 0.100);
+  border-radius: 6px;
+  padding: 8px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.150);
 }

@@ -39,7 +39,6 @@ const CheckList: React.FC<TaskItemProps> = ({ task })=> {
             textDecoration: isChecked ? 'line-through' : 'none',
             opacity: isChecked ? '0.4' : '1' 
           }}
-          className={classes.item}
           onClick={openTask}>
             {task}
         </button>

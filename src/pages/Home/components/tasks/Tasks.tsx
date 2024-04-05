@@ -29,7 +29,7 @@ const Tasks: React.FC<TaskListProps> = ({ saveTask, onAddTask })=> {
 
 
   return (
-    <div className={classes.container}>
+    <div className={classes.containerTasks}>
       <h3>Tasks</h3>
 
       <ul>
