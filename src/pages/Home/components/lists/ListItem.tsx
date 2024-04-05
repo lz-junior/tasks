@@ -26,23 +26,29 @@ const CheckList: React.FC<TaskItemProps> = ({ task })=> {
   
   
   return (
-    <li className={classes.container}>
-      <input
-        type="checkbox"
-        className={classes.checkbox}
-        checked={isChecked}
-        onChange={handleCheckboxChange}
-      />
-      <button 
-        style={{ 
-          textDecoration: isChecked ? 'line-through' : 'none',
-          opacity: isChecked ? '0.4' : '1' }}
-        className={classes.item}
-        onClick={openTask}>
-          {task}
-      </button>
-      {openTasks && <Tasks saveTask={tasks} onAddTask={handleAddTask} />}
-    </li>
+    <div>
+      <div className={classes.container}>
+        <input
+          type="checkbox"
+          className={classes.checkbox}
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+        />
+        <button 
+          style={{ 
+            textDecoration: isChecked ? 'line-through' : 'none',
+            opacity: isChecked ? '0.4' : '1' 
+          }}
+          className={classes.item}
+          onClick={openTask}>
+            {task}
+        </button>
+      </div>
+
+      <div className={classes.tasksOpened}>
+        {openTasks && <Tasks saveTask={tasks} onAddTask={handleAddTask} />}
+      </div>
+    </div>
   );
 }
 

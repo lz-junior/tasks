@@ -3,6 +3,7 @@
   gap: 12px;
   align-items: center;
   padding: 12px;
+  margin-top: 12px;
   margin-bottom: 8px;
   width: 600px;
   height: 38px;
@@ -18,9 +19,14 @@
   opacity: 0.4;
 }
 
-
 .container > button {
   background: none;
   border: none;
-  font-size: 1rem;
+  font-size: 1.3rem;
+}
+
+
+.tasksOpened {
+  display: flex;
+  margin-left: 32px;
 }

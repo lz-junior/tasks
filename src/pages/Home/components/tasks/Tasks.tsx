@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import TaskOfTasks from "./TaskOfTasks";
+import { IoIosAddCircleOutline  } from "react-icons/io";
+import classes from "./tasks.module.css"
 
 interface TaskListProps {
   saveTask: string[];
@@ -27,8 +29,8 @@ const Tasks: React.FC<TaskListProps> = ({ saveTask, onAddTask })=> {
 
 
   return (
-    <div>
-      <h5>Tasks</h5>
+    <div className={classes.container}>
+      <h3>Tasks</h3>
 
       <ul>
         {saveTask.map((task, index)=> (
@@ -40,14 +42,14 @@ const Tasks: React.FC<TaskListProps> = ({ saveTask, onAddTask })=> {
         ))}
       </ul>
 
-      <form onSubmit={handleAddTask}>
+      <form onSubmit={handleAddTask} className={classes.form}>
         <input
           type="text"
           placeholder="add a new task"
           value={task}
           onChange={(e)=> setTask(e.target.value)}
         />
-        <button type="submit">+</button>
+        <button type="submit"><IoIosAddCircleOutline /></button>
       </form>
     </div>
   );
