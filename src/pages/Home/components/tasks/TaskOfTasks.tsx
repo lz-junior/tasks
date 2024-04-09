@@ -35,10 +35,14 @@ const TaskOfTasks: React.FC<ItemOfTask> = ({ tasks, isChecked, onCheckboxChange 
           >
             {tasks}
         </button>
+
       </div>
-      <div className={classes.subtask}>
-        {subtask && <SubTask/>}
-      </div>
+      {
+        subtask && 
+        <div className={classes.subtask}>
+          {subtask && <SubTask/>}
+        </div>
+      }
     </div>
   )
 }
