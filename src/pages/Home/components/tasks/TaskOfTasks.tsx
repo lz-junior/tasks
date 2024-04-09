@@ -36,7 +36,9 @@ const TaskOfTasks: React.FC<ItemOfTask> = ({ tasks, isChecked, onCheckboxChange 
             {tasks}
         </button>
       </div>
-      {subtask && <SubTask/>}
+      <div className={classes.subtask}>
+        {subtask && <SubTask/>}
+      </div>
     </div>
   )
 }
