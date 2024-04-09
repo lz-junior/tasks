@@ -1,5 +1,6 @@
 import {useState} from "react";
 import classes from "./subtask.module.css";
+import { IoIosAddCircleOutline  } from "react-icons/io";
 import { toast } from "react-toastify";
 
 
@@ -44,12 +45,12 @@ const SubTask = ()=> {
         ))}
       </ul>
 
-      <form onSubmit={addSubtask}>
+      <form onSubmit={addSubtask} className={classes.form}>
         <input 
           type="text"
           placeholder="add new subtask"
           name="task"/>
-        <button type="submit">+</button>
+        <button type="submit"><IoIosAddCircleOutline /></button>
       </form>
     </div>
   )
