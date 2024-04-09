@@ -23,7 +23,7 @@ const SubTask = ()=> {
 
 
   return (
-    <div>
+    <div className={classes.container}>
       <h4>SubTask</h4>
       <ul>
         {task.map((task: any, index: any)=> (

@@ -19,22 +19,23 @@ const TaskOfTasks: React.FC<ItemOfTask> = ({ tasks, isChecked, onCheckboxChange 
 
   return (
     <div className={classes.container}>
-      <input
-        type="checkbox"
-        style={{opacity: isChecked ? '0.4' : '1'}}
-        checked={isChecked}
-        onChange={onCheckboxChange}
-      />
-      <button 
-        style={{ 
-          textDecoration: isChecked ? 'line-through' : 'none',
-          opacity: isChecked ? '0.4' : '1' 
-        }}
-        className={classes.item}
-        onClick={openSubTask}
-        >
-          {tasks}
-      </button>
+      <div className={classes.task}>
+        <input
+          type="checkbox"
+          style={{opacity: isChecked ? '0.4' : '1'}}
+          checked={isChecked}
+          onChange={onCheckboxChange}
+        />
+        <button 
+          style={{ 
+            textDecoration: isChecked ? 'line-through' : 'none',
+            opacity: isChecked ? '0.4' : '1' 
+          }}
+          onClick={openSubTask}
+          >
+            {tasks}
+        </button>
+      </div>
       {subtask && <SubTask/>}
     </div>
   )
