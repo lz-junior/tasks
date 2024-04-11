@@ -1,6 +1,6 @@
 // src/App.tsx
 import React, { useState } from 'react';
-import TaskList from './components/lists/taskList.tsx';
+import List from './components/lists/List.tsx';
 import { IoIosAddCircleOutline  } from "react-icons/io";
 import "./home.css";
 
@@ -22,7 +22,7 @@ const Home: React.FC = ()=> {
     <div className="container">
       <h1>My lists</h1>
       
-      <TaskList tasks={tasks} />
+      <List tasks={tasks} />
       
       <form onSubmit={handleAddTask} >
         <input

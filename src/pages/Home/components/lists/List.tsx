@@ -1,10 +1,8 @@
 // src/components/TaskList.tsx
 import React, { useState } from 'react';
-// import ListItem from './ListItem';
-import classes from './listItem.module.css'
 import Tasks from '../tasks/Tasks';
 
-
+import classes from './listItem.module.css'
 
 
 
@@ -14,8 +12,7 @@ interface TaskListProps {
 
 
 
-const TaskList: React.FC<TaskListProps> = ({ tasks })=> {
-
+const List: React.FC<TaskListProps> = ({ tasks })=> {
   const [isChecked, setIsChecked] = useState(false);
   const [openTasks, setOpenTasks] = useState(false);
   const [task, setTask] = useState<string[]>([]);
@@ -32,7 +29,7 @@ const TaskList: React.FC<TaskListProps> = ({ tasks })=> {
 
   return (
     <ul>
-      {tasks.map((task, index)=> (
+      {tasks.map((task)=> (
         <div>
         <div className={classes.container}>
           <input
@@ -51,13 +48,13 @@ const TaskList: React.FC<TaskListProps> = ({ tasks })=> {
           </button>
         </div>
   
-        <div className={classes.tasksOpened}>
-          {openTasks && <Tasks saveTask={tasks} onAddTask={handleAddTask} />}
-        </div>
       </div>
       ))}
+        <div className={classes.tasksOpened}>
+          {openTasks && <Tasks saveTask={task} onAddTask={handleAddTask} />}
+        </div>
     </ul>
   );
 };
 
-export default TaskList;
+export default List;
