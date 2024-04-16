@@ -14,16 +14,15 @@ interface TaskListProps {
 
 const Tasks: React.FC<TaskListProps> = ({ saveTask, onAddTask })=> {
   const [task, setTask] = useState<string>('');
-  const [isChecked, setIsChecked] = useState(false);
-
-  const [subtask, setSubtask] = useState(false);
-
-  const openSubTask = ()=> {
-    setSubtask(!subtask)
+  const [isChecked, setIsChecked] = useState<number | null>(null);
+  const [subtask, setSubtask] = useState<number | null>(null);
+  
+  const openSubTask = (index: number)=> {
+    setSubtask(subtask === index ? null : index)
   }
 
-  const handleCheckboxChange = ()=> {
-    setIsChecked(!isChecked);
+  const handleCheckboxChange = (index:number)=> {
+    setIsChecked(isChecked === index ? null : index);
   }
 
   const handleAddTask = (e:React.FormEvent) => {
@@ -40,32 +39,31 @@ const Tasks: React.FC<TaskListProps> = ({ saveTask, onAddTask })=> {
       <h3>Tasks</h3>
 
       <ul>
-        {saveTask.map((task)=> (
-          <div className={classes.container}>
-          <div className={classes.task}>
-            <input
-              type="checkbox"
-              style={{opacity: isChecked ? '0.4' : '1'}}
-              checked={isChecked}
-              onChange={handleCheckboxChange}
-            />
-            <button 
-              style={{ 
-                textDecoration: isChecked ? 'line-through' : 'none',
-                opacity: isChecked ? '0.4' : '1' 
-              }}
-              onClick={openSubTask}
-              >
-                {task}
-            </button>
-    
-          </div>
-          {
-            subtask && 
-            <div className={classes.subtask}>
-              {subtask && <SubTask/>}
+        {saveTask.map((task, index)=> (
+          <div className={classes.container} key={index}>
+            <div className={classes.task}>
+              <input
+                type="checkbox"
+                style={{opacity: isChecked === index ? '0.4' : '1'}}
+                checked={isChecked === index}
+                onChange={()=> handleCheckboxChange(index)}
+              />
+              <button 
+                style={{ 
+                  textDecoration: isChecked === index ? 'line-through' : 'none',
+                  opacity: isChecked === index ? '0.4' : '1' 
+                }}
+                onClick={()=> openSubTask(index)}
+                >
+                  {task}
+              </button>
             </div>
-          }
+
+          {subtask === index && (
+            <div className={classes.subtask}>
+              <SubTask />
+            </div>
+          )}
         </div>
         ))}
       </ul>
