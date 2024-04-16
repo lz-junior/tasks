@@ -14,7 +14,7 @@ interface TaskListProps {
 
 const Tasks: React.FC<TaskListProps> = ({ saveTask, onAddTask })=> {
   const [task, setTask] = useState<string>('');
-  const [isChecked, setIsChecked] = useState<boolean[]>(Array(saveTask.length).fill(false));
+  const [checkedIndexes, setCheckedIndexes] = useState<boolean[]>(Array(saveTask.length).fill(false));
   const [subtask, setSubtask] = useState<number | null>(null);
   
   const openSubTask = (index: number)=> {
@@ -22,10 +22,10 @@ const Tasks: React.FC<TaskListProps> = ({ saveTask, onAddTask })=> {
   }
 
   const toggleCheckbox = (index:number)=> {
-    setIsChecked(prev => {
-      const newIsChecked = [...prev];
-      newIsChecked[index] = !newIsChecked[index];
-      return newIsChecked;
+    setCheckedIndexes(prev => {
+      const newCheckedIndexes = [...prev];
+      newCheckedIndexes[index] = !newCheckedIndexes[index];
+      return newCheckedIndexes;
     });
   }
 
@@ -48,14 +48,14 @@ const Tasks: React.FC<TaskListProps> = ({ saveTask, onAddTask })=> {
             <div className={classes.task}>
               <input
                 type="checkbox"
-                style={{opacity: isChecked[index] ? '0.4' : '1'}}
-                checked={isChecked[index]}
+                style={{opacity: checkedIndexes[index] ? '0.4' : '1'}}
+                checked={checkedIndexes[index]}
                 onChange={()=> toggleCheckbox(index)}
               />
               <button 
                 style={{ 
-                  textDecoration: isChecked[index] ? 'line-through' : 'none',
-                  opacity: isChecked[index] ? '0.4' : '1' 
+                  textDecoration: checkedIndexes[index] ? 'line-through' : 'none',
+                  opacity: checkedIndexes[index] ? '0.4' : '1' 
                 }}
                 onClick={()=> openSubTask(index)}
                 >
