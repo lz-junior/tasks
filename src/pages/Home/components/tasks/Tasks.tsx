@@ -20,7 +20,6 @@ const Tasks: React.FC<TaskListProps> = ({ saveTask, onAddTask })=> {
   const openSubTask = (index: number)=> {
     setSubtask(subtask === index ? null : index)
   }
-
   const toggleCheckbox = (index:number)=> {
     setCheckedIndexes(prev => {
       const newCheckedIndexes = [...prev];
@@ -28,7 +27,6 @@ const Tasks: React.FC<TaskListProps> = ({ saveTask, onAddTask })=> {
       return newCheckedIndexes;
     });
   }
-
   const handleAddTask = (e:React.FormEvent) => {
     e.preventDefault()
     if (task.trim() !== '') {
@@ -65,7 +63,7 @@ const Tasks: React.FC<TaskListProps> = ({ saveTask, onAddTask })=> {
 
           {subtask === index && (
             <div className={classes.subtask}>
-              <SubTask />
+              <SubTask saveSubtask={task}/>
             </div>
           )}
         </div>

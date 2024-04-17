@@ -4,10 +4,14 @@ import { IoIosAddCircleOutline  } from "react-icons/io";
 import { toast } from "react-toastify";
 
 
+interface SubtaskProps {
+  saveSubtask: string;
+}
 
-const SubTask = ()=> {
+
+const SubTask: React.FC<SubtaskProps> = ({ saveSubtask })=> {
   const [task, setTask] = useState<string[]>([]);
-  const [isChecked, setIsChecked] = useState(false)
+  const [checkedIndexes, setCheckedIndexes] = useState<boolean[]>(Array(saveSubtask.length).fill(false))
 
   const addSubtask = (e: any)=> {
     e.preventDefault();
@@ -18,29 +22,36 @@ const SubTask = ()=> {
     setTask([...task, e.currentTarget.task.value]);
     e.currentTarget.task.value = "";
   }
-  const onCheckboxChange = ()=> {
-    setIsChecked(!isChecked);
+  const toggleCheckbox = (index:number)=> {
+    setCheckedIndexes(prev => {
+      const newCheckedIndexes = [...prev];
+      newCheckedIndexes[index] = !newCheckedIndexes[index];
+      return newCheckedIndexes;
+    });
   }
 
 
   return (
     <div className={classes.container}>
       <h4>SubTask</h4>
+
       <ul>
-        {task.map((task: any, index: any)=> (
+        {task.map((task: string, index: number)=> (
           <li key={index} className={classes.li_subtask}>
             <input 
-              type="checkbox" 
-              key={index} 
-              checked={isChecked}
-              onChange={onCheckboxChange}/>
+              type="checkbox"
+              style={{opacity: checkedIndexes[index] ? '0.4' : '1'}}
+              checked={checkedIndexes[index]}
+              onChange={()=> toggleCheckbox(index)}/>
             <input 
-              type="text" 
-              key={index} 
+              type="text"
               value={task}
               className={classes.subtask} 
-              style={{ textDecoration: isChecked ? 'line-through' : 'none' }}
-              readOnly/>
+              readOnly
+              style={{ 
+                textDecoration: checkedIndexes[index] ? 'line-through' : 'none',
+                opacity: checkedIndexes[index] ? '0.4' : '1' 
+              }}/>
           </li>
         ))}
       </ul>
