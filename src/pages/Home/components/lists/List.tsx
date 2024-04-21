@@ -13,15 +13,20 @@ interface TaskListProps {
 
 
 const List: React.FC<TaskListProps> = ({ tasks })=> {
-  const [isChecked, setIsChecked] = useState(false);
+  const [checkedIndexes, setCheckedIndexes] = useState<boolean[]>(Array(tasks.length).fill(false))
   const [openTasks, setOpenTasks] = useState(false);
   const [task, setTask] = useState<string[]>([]);
 
-  const handleCheckboxChange = ()=> {
-    setIsChecked(!isChecked);
+  const toggleCheckbox = (index:number)=> {
+    setCheckedIndexes(prev => {
+      const newCheckedIndexes = [...prev];
+      newCheckedIndexes[index] = !newCheckedIndexes[index];
+      return newCheckedIndexes;
+    });
   }
-  const openTask = ()=> {
+  const openTask = (index:number)=> {
     setOpenTasks(!openTasks);
+    console.log(index)
   }
   const handleAddTask = (newTask: string)=> {
     setTask(prevTask => [...prevTask, newTask])
@@ -35,15 +40,15 @@ const List: React.FC<TaskListProps> = ({ tasks })=> {
             <input
               type="checkbox"
               className={classes.checkbox}
-              checked={isChecked}
-              onChange={handleCheckboxChange}
+              checked={checkedIndexes[index]}
+              onChange={()=> toggleCheckbox(index)}
             />
             <button 
               style={{ 
-                textDecoration: isChecked ? 'line-through' : 'none',
-                opacity: isChecked ? '0.4' : '1' 
+                textDecoration: checkedIndexes[index] ? 'line-through' : 'none',
+                opacity: checkedIndexes[index] ? '0.4' : '1' 
               }}
-              onClick={openTask}>
+              onClick={()=> openTask(index)}>
                 {task}
             </button>
           </div>
