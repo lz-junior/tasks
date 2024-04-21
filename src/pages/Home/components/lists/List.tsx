@@ -29,26 +29,25 @@ const List: React.FC<TaskListProps> = ({ tasks })=> {
 
   return (
     <ul>
-      {tasks.map((task)=> (
-        <div>
-        <div className={classes.container}>
-          <input
-            type="checkbox"
-            className={classes.checkbox}
-            checked={isChecked}
-            onChange={handleCheckboxChange}
-          />
-          <button 
-            style={{ 
-              textDecoration: isChecked ? 'line-through' : 'none',
-              opacity: isChecked ? '0.4' : '1' 
-            }}
-            onClick={openTask}>
-              {task}
-          </button>
+      {tasks.map((task:string, index:number)=> (
+        <div key={index}>
+          <div className={classes.container}>
+            <input
+              type="checkbox"
+              className={classes.checkbox}
+              checked={isChecked}
+              onChange={handleCheckboxChange}
+            />
+            <button 
+              style={{ 
+                textDecoration: isChecked ? 'line-through' : 'none',
+                opacity: isChecked ? '0.4' : '1' 
+              }}
+              onClick={openTask}>
+                {task}
+            </button>
+          </div>
         </div>
-  
-      </div>
       ))}
         <div className={classes.tasksOpened}>
           {openTasks && <Tasks saveTask={task} onAddTask={handleAddTask} />}
