@@ -1,7 +1,4 @@
-// src/components/TaskList.tsx
 import React, {  } from 'react';
-// import Tasks from '../tasks/Tasks';
-
 import classes from './listItem.module.css'
 
 
@@ -24,12 +21,14 @@ const List:React.FC<TaskListProps> = ({ tasks })=> {
   return (
     <ul className={classes.container}>
       {tasks.map((task) => (
-        <li 
-          key={task.id} 
-          className={classes.list_item} 
-          onClick={()=>openTask(task)}>
-            {task.name}
-        </li>
+        <div>
+          <li 
+            key={task.id} 
+            className={classes.list_item} 
+            onClick={()=>openTask(task)}>
+              {task.name}
+          </li>
+        </div>
       ))}
     </ul>
   );
