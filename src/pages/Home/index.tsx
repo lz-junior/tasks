@@ -7,16 +7,21 @@ import List from './components/lists/List.tsx';
 import { IoIosAddCircleOutline  } from "react-icons/io";
 import "./home.css";
 
+// interface Task {
+//   id: number;
+//   name: string;
+// }
 
 const Home: React.FC = ()=> {
-  const [tasks, setTasks] = useState<string[]>([]);
-  const [task, setTask] = useState<string>('');
+  const [taskName, setTaskName] = useState('');
+  const dispatch = useDispatch<AppDispatch>();
+  const tasks = useSelector((state: RootState) => state.tasks.tasks);
 
-  const handleAddTask = (e:any) => {
+  const handleAddTask = (e:React.FormEvent) => {
     e.preventDefault()
-    if (task.trim() !== '') {
-      setTasks((prevTasks) => [...prevTasks, task]);
-      setTask('');
+    if (taskName.trim()) {
+      dispatch(addTask(taskName));
+      setTaskName('');
     }
   };
 
@@ -29,8 +34,8 @@ const Home: React.FC = ()=> {
       <form onSubmit={handleAddTask} >
         <input
           type="text"
-          value={task}
-          onChange={(e)=> setTask(e.target.value)}
+          value={taskName}
+          onChange={(e)=> setTaskName(e.target.value)}
           placeholder="add a new list"
         />
         <button type="submit"><IoIosAddCircleOutline /></button>

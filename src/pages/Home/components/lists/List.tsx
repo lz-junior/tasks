@@ -5,36 +5,43 @@ import Tasks from '../tasks/Tasks';
 import classes from './listItem.module.css'
 
 
+interface Task {
+  id: number;
+  name: string;
+}
 
 interface TaskListProps {
-  tasks: string[];
+  tasks: Task[];
 }
 
 
 
 const List: React.FC<TaskListProps> = ({ tasks })=> {
-  const [checkedIndexes, setCheckedIndexes] = useState<boolean[]>(Array(tasks.length).fill(false))
-  const [openTasks, setOpenTasks] = useState(false);
-  const [task, setTask] = useState<string[]>([]);
+  // const [checkedIndexes, setCheckedIndexes] = useState<boolean[]>(Array(tasks.length).fill(false))
+  // const [openTasks, setOpenTasks] = useState(false);
+  // const [task, setTask] = useState<string[]>([]);
 
-  const toggleCheckbox = (index:number)=> {
-    setCheckedIndexes(prev => {
-      const newCheckedIndexes = [...prev];
-      newCheckedIndexes[index] = !newCheckedIndexes[index];
-      return newCheckedIndexes;
-    });
-  }
-  const openTask = (index:number)=> {
-    setOpenTasks(!openTasks);
-    console.log(index)
-  }
-  const handleAddTask = (newTask: string)=> {
-    setTask(prevTask => [...prevTask, newTask])
-  }
+  // const toggleCheckbox = (index:number)=> {
+  //   setCheckedIndexes(prev => {
+  //     const newCheckedIndexes = [...prev];
+  //     newCheckedIndexes[index] = !newCheckedIndexes[index];
+  //     return newCheckedIndexes;
+  //   });
+  // }
+  // const openTask = (index:number)=> {
+  //   setOpenTasks(!openTasks);
+  //   console.log(index)
+  // }
+  // const handleAddTask = (newTask: string)=> {
+  //   setTask(prevTask => [...prevTask, newTask])
+  // }
 
   return (
     <ul>
-      {tasks.map((task:string, index:number)=> (
+      {tasks.map((task) => (
+        <li key={task.id}>{task.name}</li>
+      ))}
+      {/* {tasks.map((task:string, index:number)=> (
         <div key={index}>
           <div className={classes.container}>
             <input
@@ -53,10 +60,10 @@ const List: React.FC<TaskListProps> = ({ tasks })=> {
             </button>
           </div>
         </div>
-      ))}
-        <div className={classes.tasksOpened}>
+      ))} */}
+        {/* <div className={classes.tasksOpened}>
           {openTasks && <Tasks saveTask={task} onAddTask={handleAddTask} />}
-        </div>
+        </div> */}
     </ul>
   );
 };
