@@ -1,9 +1,11 @@
 // src/App.tsx
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, AppDispatch } from '../../redux/store';
+import { addTask } from '../../redux/taskReducer';
 import List from './components/lists/List.tsx';
 import { IoIosAddCircleOutline  } from "react-icons/io";
 import "./home.css";
-
 
 
 const Home: React.FC = ()=> {
