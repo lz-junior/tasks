@@ -11,7 +11,7 @@ import "./home.css";
 const Home: React.FC = ()=> {
   const [taskName, setTaskName] = useState('');
   const dispatch = useDispatch<AppDispatch>();
-  const tasks = useSelector((state: RootState) => state.tasks.tasks);
+  const tasks = useSelector((state: RootState) => state.lists.lists);
 
   const handleAddTask = (e:React.FormEvent) => {
     e.preventDefault()
@@ -27,7 +27,7 @@ const Home: React.FC = ()=> {
       
       <List lists={tasks} />
       
-      <form onSubmit={handleAddTask} >
+      <form onSubmit={handleAddTask}>
         <input
           type="text"
           value={taskName}

@@ -4,6 +4,7 @@ import taskReducer from './taskReducer';
 
 const store = configureStore({
   reducer: {
+    lists: taskReducer,
     tasks: taskReducer,
   },
 });
