@@ -1,4 +1,5 @@
-import React, {  } from 'react';
+import React, { useState } from 'react';
+import Tasks from '../tasks/Tasks';
 import classes from './listItem.module.css'
 
 
@@ -13,21 +14,28 @@ interface TaskListProps {
 
 
 const List:React.FC<TaskListProps> = ({ tasks })=> {
-  
-  const openTask = (task:Task)=> {
-    console.log(task)
+  const [thereIsTask, setThereIsTask] = useState<number>();
+
+  const openTask = (index:number)=> {
+    setThereIsTask(index);
+    if (thereIsTask === index) {
+      setThereIsTask(undefined)
+    }
   };
 
   return (
     <ul className={classes.container}>
-      {tasks.map((task) => (
+      {tasks.map((task, index) => (
         <div>
           <li 
-            key={task.id} 
+            key={index} 
             className={classes.list_item} 
-            onClick={()=>openTask(task)}>
+            onClick={()=>openTask(index)}>
               {task.name}
           </li>
+          <div>
+            {thereIsTask === index ? <Tasks/> : ''}
+          </div>
         </div>
       ))}
     </ul>

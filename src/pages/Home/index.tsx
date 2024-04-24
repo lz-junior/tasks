@@ -7,10 +7,6 @@ import List from './components/lists/List.tsx';
 import { IoIosAddCircleOutline  } from "react-icons/io";
 import "./home.css";
 
-// interface Task {
-//   id: number;
-//   name: string;
-// }
 
 const Home: React.FC = ()=> {
   const [taskName, setTaskName] = useState('');

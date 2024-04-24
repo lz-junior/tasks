@@ -6,41 +6,41 @@ import classes from "./tasks.module.css"
 
 
 interface TaskListProps {
-  saveTask: string[];
-  onAddTask: (newTask: string)=> void;
+  saveTask?: string[];
+  onAddTask?: (newTask: string)=> void;
 }
 
 
 
-const Tasks: React.FC<TaskListProps> = ({ saveTask, onAddTask })=> {
-  const [task, setTask] = useState<string>('');
-  const [checkedIndexes, setCheckedIndexes] = useState<boolean[]>(Array(saveTask.length).fill(false));
-  const [subtask, setSubtask] = useState<number | null>(null);
+const Tasks: React.FC<TaskListProps> = (/*{ saveTask, onAddTask }*/)=> {
+  // const [task, setTask] = useState<string>('');
+  // const [checkedIndexes, setCheckedIndexes] = useState<boolean[]>(Array(saveTask.length).fill(false));
+  // const [subtask, setSubtask] = useState<number | null>(null);
   
-  const openSubTask = (index: number)=> {
-    setSubtask(subtask === index ? null : index)
-  }
-  const toggleCheckbox = (index:number)=> {
-    setCheckedIndexes(prev => {
-      const newCheckedIndexes = [...prev];
-      newCheckedIndexes[index] = !newCheckedIndexes[index];
-      return newCheckedIndexes;
-    });
-  }
-  const handleAddTask = (e:React.FormEvent) => {
-    e.preventDefault()
-    if (task.trim() !== '') {
-      onAddTask(task);
-      setTask('');
-    }
-  };
+  // const openSubTask = (index: number)=> {
+  //   setSubtask(subtask === index ? null : index)
+  // }
+  // const toggleCheckbox = (index:number)=> {
+  //   setCheckedIndexes(prev => {
+  //     const newCheckedIndexes = [...prev];
+  //     newCheckedIndexes[index] = !newCheckedIndexes[index];
+  //     return newCheckedIndexes;
+  //   });
+  // }
+  // const handleAddTask = (e:React.FormEvent) => {
+  //   e.preventDefault()
+  //   if (task.trim() !== '') {
+  //     onAddTask(task);
+  //     setTask('');
+  //   }
+  // };
 
 
   return (
     <div className={classes.containerTasks}>
       <h3>Tasks</h3>
 
-      <ul>
+      {/* <ul>
         {saveTask.map((task, index)=> (
           <div className={classes.container} key={index}>
             <div className={classes.task}>
@@ -78,7 +78,7 @@ const Tasks: React.FC<TaskListProps> = ({ saveTask, onAddTask })=> {
           onChange={(e)=> setTask(e.target.value)}
         />
         <button type="submit"><IoIosAddCircleOutline /></button>
-      </form>
+      </form> */}
     </div>
   );
 }
