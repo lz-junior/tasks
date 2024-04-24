@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState, AppDispatch } from '../../redux/store';
-import { addTask } from '../../redux/taskReducer';
+import { addList } from '../../redux/taskReducer';
 import List from './components/lists/List.tsx';
 import { IoIosAddCircleOutline  } from "react-icons/io";
 import "./home.css";
@@ -16,7 +16,7 @@ const Home: React.FC = ()=> {
   const handleAddTask = (e:React.FormEvent) => {
     e.preventDefault()
     if (taskName.trim()) {
-      dispatch(addTask(taskName));
+      dispatch(addList(taskName));
       setTaskName('');
     }
   };
@@ -25,7 +25,7 @@ const Home: React.FC = ()=> {
     <div className="container">
       <h1>My lists</h1>
       
-      <List tasks={tasks} />
+      <List lists={tasks} />
       
       <form onSubmit={handleAddTask} >
         <input

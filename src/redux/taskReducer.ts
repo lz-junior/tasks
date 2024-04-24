@@ -19,16 +19,16 @@ const taskSlice = createSlice({
   name: 'task',
   initialState,
   reducers: {
-    addTask: (state, action: PayloadAction<string>) => {
-      const newTask = {
+    addList: (state, action: PayloadAction<string>) => {
+      const newList = {
         id: state.tasks.length + 1,
         name: action.payload,
       };
-      state.tasks.push(newTask);
+      state.tasks.push(newList);
     },
     // Outros reducers para tarefas, como editar ou remover, podem ser adicionados aqui
   },
 });
 
-export const { addTask } = taskSlice.actions;
+export const { addList } = taskSlice.actions;
 export default taskSlice.reducer;

@@ -3,17 +3,17 @@ import Tasks from '../tasks/Tasks';
 import classes from './listItem.module.css'
 
 
-interface Task {
+interface List {
   id: number;
   name: string;
 }
 
-interface TaskListProps {
-  tasks: Task[];
+interface ListProps {
+  lists: List[];
 }
 
 
-const List:React.FC<TaskListProps> = ({ tasks })=> {
+const List:React.FC<ListProps> = ({ lists })=> {
   const [thereIsTask, setThereIsTask] = useState<number>();
 
   const openTask = (index:number)=> {
@@ -25,7 +25,7 @@ const List:React.FC<TaskListProps> = ({ tasks })=> {
 
   return (
     <ul className={classes.container}>
-      {tasks.map((task, index) => (
+      {lists.map((task, index) => (
         <div>
           <li 
             key={index} 
