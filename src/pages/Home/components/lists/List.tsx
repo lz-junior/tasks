@@ -26,9 +26,8 @@ const List:React.FC<ListProps> = ({ lists })=> {
   return (
     <ul className={classes.container}>
       {lists.map((task, index) => (
-        <div>
+        <div key={index}>
           <li 
-            key={index} 
             className={classes.list_item} 
             onClick={()=>openTask(index)}>
               {task.name}

@@ -31,20 +31,23 @@ const Tasks: React.FC<TaskProps> = ({ initialTasks = [] })=> {
     <div className={classes.container}>
       <h3>Tasks</h3>
       
-      <ul>
+      <ul className={classes.ul}>
         {tasks.map((task:string, index:number)=> {
-          return <li key={index}>{task}</li>
+          return <li key={index} className={classes.li}>{task}</li>
         })}
       </ul>
-      <form onSubmit={handleAddTask}>
+
+      <form onSubmit={handleAddTask} className={classes.form}>
         <input
           type="text"
           placeholder="add a new list"
+          className={classes.input_task}
           value={taskInput}
           onChange={(e)=> setTaskInput(e.target.value)}
         />
-        <button type="submit"><IoIosAddCircleOutline/></button>
+        <button type="submit" className={classes.btn_submit}><IoIosAddCircleOutline size={25}/></button>
       </form>
+
     </div>
   );
 }
