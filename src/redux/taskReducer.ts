@@ -8,6 +8,7 @@ interface List {
 interface Task {
   id: number;
   name: string;
+  listId: number;
 }
   interface TaskState {
     lists: List[];
@@ -31,10 +32,11 @@ const taskSlice = createSlice({
       };
       state.lists.push(newList);
     },
-    addTask: (state, action: PayloadAction<string>)=> {
+    addTask: (state, action: PayloadAction<{ name: string; listId: number }>) => {
       const newTask = {
         id: state.tasks.length + 1,
-        name: action.payload,
+        name: action.payload.name,
+        listId: action.payload.listId,
       };
       state.tasks.push(newTask)
     }

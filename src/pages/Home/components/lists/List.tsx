@@ -14,26 +14,27 @@ interface ListProps {
 
 
 const List:React.FC<ListProps> = ({ lists })=> {
-  const [thereIsTask, setThereIsTask] = useState<number>();
+  const [openTaskIndex, setOpenTaskIndex] = useState<number | undefined>();
 
-  const openTask = (index:number)=> {
-    setThereIsTask(index);
-    if (thereIsTask === index) {
-      setThereIsTask(undefined)
+  const toogleTasks = (index:number)=> {
+    if (openTaskIndex === index) {
+      setOpenTaskIndex(undefined)
+    }else{
+      setOpenTaskIndex(index)
     }
   };
 
   return (
     <ul className={classes.container}>
-      {lists.map((task, index) => (
-        <div key={index}>
+      {lists.map((list, index) => (
+        <div key={list.id}>
           <li 
             className={classes.list_item} 
-            onClick={()=>openTask(index)}>
-              {task.name}
+            onClick={()=>toogleTasks(index)}>
+              {list.name}
           </li>
           <div>
-            {thereIsTask === index ? <Tasks/> : ''}
+            {openTaskIndex === index ? <Tasks listId={list.id}/> : null}
           </div>
         </div>
       ))}

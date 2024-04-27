@@ -1,30 +1,36 @@
 import React, { useState } from "react";
 import { addTask } from "../../../../redux/taskReducer";
-import { useDispatch, /*useSelector*/ } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../../redux/store";
 
-import classes from "./tasks.module.css"
 import { IoIosAddCircleOutline } from "react-icons/io";
-import { AppDispatch } from "../../../../redux/store";
+import classes from "./tasks.module.css"
 
 
 interface TaskProps {
-  initialTasks?: string[];
+  listId: number;
 }
 
 
-const Tasks: React.FC<TaskProps> = ({ initialTasks = [] })=> {
-  const [taskInput, setTaskInput] = useState('');
-  const [tasks, setTasks] = useState<string[]>(initialTasks);
+const Tasks: React.FC<TaskProps> = ({ listId })=> {
   const dispatch = useDispatch<AppDispatch>();
+  const [taskInput, setTaskInput] = useState('');
+  const tasks = useSelector((state: RootState) => 
+    state.tasks.tasks.filter((task) => task.listId === listId)
+  );
 
   const handleAddTask = (e:any)=> {
     e.preventDefault();
     if (taskInput.trim()) {
-      dispatch(addTask(taskInput));
-      setTasks([...tasks, taskInput]);
-      setTaskInput('');
+      dispatch(
+        addTask({
+          name: taskInput,
+          listId: listId,
+        })
+      );
+      setTaskInput("");
     }
-  }
+  };
 
 
   return (
@@ -32,8 +38,8 @@ const Tasks: React.FC<TaskProps> = ({ initialTasks = [] })=> {
       <h3>Tasks</h3>
       
       <ul className={classes.ul}>
-        {tasks.map((task:string, index:number)=> {
-          return <li key={index} className={classes.li}>{task}</li>
+        {tasks.map((task) => {
+          return <li key={task.id} className={classes.li}>{task.name}</li>
         })}
       </ul>
 
@@ -45,11 +51,13 @@ const Tasks: React.FC<TaskProps> = ({ initialTasks = [] })=> {
           value={taskInput}
           onChange={(e)=> setTaskInput(e.target.value)}
         />
-        <button type="submit" className={classes.btn_submit}><IoIosAddCircleOutline size={25}/></button>
+        <button type="submit" className={classes.btn_submit}>
+          <IoIosAddCircleOutline size={25}/>
+        </button>
       </form>
 
     </div>
   );
-}
+};
 
 export default Tasks;
