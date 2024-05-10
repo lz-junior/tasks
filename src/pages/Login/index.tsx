@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FcGoogle } from "react-icons/fc";
-import { FaFacebook } from "react-icons/fa6";
 import { toast } from 'react-toastify'
 import './login.css';
 
@@ -9,7 +7,6 @@ import './login.css';
 const Login = ()=> {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
 
 
@@ -25,14 +22,13 @@ const Login = ()=> {
   }
 
 
-
   return (
     <div>
       <h1 className="title-login"> Welcome to tasks</h1>
 
       <form className="form" onSubmit={handleLogin}>
         <h2>Login</h2>
-        <span>E-mail</span>
+        <span className="spann">E-mail</span>
         <input
           className="input-email"
           type='text' 
@@ -40,7 +36,7 @@ const Login = ()=> {
           value={email} 
           onChange={(e)=> setEmail(e.target.value)}/>
 
-        <span className="span-password">Password</span>
+        <span className="spann">Password</span>
         <input
           type='password' 
           placeholder='123123'
@@ -54,11 +50,6 @@ const Login = ()=> {
       <div className="section2">
         <button className="btn-login-create-forgot">Forgot password?</button>
         <button className="btn-login-create-forgot">Create an account</button>
-      </div>
-
-      <div className="icons">
-        <button><FcGoogle size={55}/></button>
-        <button><FaFacebook size={55}/></button>
       </div>
     </div>
   )
