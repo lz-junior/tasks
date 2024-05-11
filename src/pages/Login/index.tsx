@@ -28,7 +28,7 @@ const Login = ()=> {
 
       <form className="form" onSubmit={handleLogin}>
         <h2>Login</h2>
-        <span className="spann">E-mail</span>
+        <span>E-mail</span>
         <input
           className="input-email"
           type='text' 
@@ -36,7 +36,7 @@ const Login = ()=> {
           value={email} 
           onChange={(e)=> setEmail(e.target.value)}/>
 
-        <span className="spann">Password</span>
+        <span>Password</span>
         <input
           type='password' 
           placeholder='123123'

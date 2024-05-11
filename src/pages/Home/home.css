@@ -7,6 +7,8 @@
 }
 
 .container > h1 {
+  align-self: flex-start;
+  margin-left: 70px;
   margin-bottom: 12px;
 }
 
