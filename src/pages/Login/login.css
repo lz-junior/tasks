@@ -54,6 +54,9 @@
   color: #fff;
   background-color: #00B2FF;
 }
+.form > button:hover {
+  background-color: #0096d6;
+}
 
 .section2 {
   display: flex;
@@ -68,18 +71,21 @@
   font-size: 1.3rem;
   color: #00b2ff;
 }
-
+.btn-login-create-forgot:hover {
+  color: #0096d6;
+  font-weight: 400;
+}
 
 
 
 @media screen and (min-width: 768px) {
   /* tablet */
-  .title-login {
+  /* .title-login {
     color: red;
-  }
+  } */
 
   .form {
-    margin-top: 15%;
+    margin-top: 5%;
   }
   .form > input {
     width: 60%;
@@ -90,9 +96,9 @@
 
 @media screen and (min-width: 1024px) {
   /* desktop */
-  .title-login {
+  /* .title-login {
     color: green;
-  }
+  } */
 
   .form {
     margin-top: 7%;
@@ -124,7 +130,7 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .title-login {
+  /* .title-login {
     color: blue;
-  }
+  } */
 }
