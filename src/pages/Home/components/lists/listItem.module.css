@@ -6,13 +6,18 @@
   padding: 12px;
   border-radius: 12px;
   height: 75vh;
-  background-color: #0054c1;
 }
 
 .list_item {
   display: flex;
   padding: 8px;
   border-radius: 8px;
-  background-color: white;
   list-style: none;
+  font-size: 1.5rem;
+  background-color: #FFF;
+  transition: .3s;
+}
+
+.list_item:hover {
+  box-shadow: 2px 2px;
 }

@@ -30,6 +30,7 @@ const Home: React.FC = ()=> {
       <form onSubmit={handleAddTask}>
         <input
           type="text"
+          maxLength={50}
           value={taskName}
           onChange={(e)=> setTaskName(e.target.value)}
           placeholder="add a new list"
