@@ -2,14 +2,21 @@
   display: flex;
    flex-direction: column;
    gap: 8px;
-  width: 80%;
+  width: 100%;
   padding: 12px;
   border-radius: 12px;
   height: 75vh;
 }
 
+.div_item {
+  display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
 .list_item {
   display: flex;
+  width: 70%;
   padding: 8px;
   border-radius: 8px;
   list-style: none;

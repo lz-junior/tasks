@@ -27,7 +27,7 @@ const List:React.FC<ListProps> = ({ lists })=> {
   return (
     <ul className={classes.container}>
       {lists.map((list, index) => (
-        <div key={list.id}>
+        <div key={list.id} className={classes.div_item}>
           <li 
             className={classes.list_item} 
             onClick={()=>toogleTasks(index)}>

@@ -10,17 +10,20 @@
   align-self: flex-start;
   margin-left: 12%;
   margin-bottom: 12px;
+  color: #003567;
 }
 
 .container > form {
   display: flex;
+   justify-content: center;
   position: absolute;
+  width: 100%;
   bottom: 0;
   margin-bottom: 32px;
 }
 
 .container > form > input {
-  width: 600px;
+  width: 70%;
   height: 50px;
   padding: 12px;
   border-top: none;
