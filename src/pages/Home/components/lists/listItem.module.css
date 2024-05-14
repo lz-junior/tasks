@@ -24,7 +24,28 @@
   background-color: #FFF;
   transition: .3s;
 }
-
 .list_item:hover {
   box-shadow: 2px 2px;
+}
+
+.div_tasks {
+  display: flex;
+   justify-content: center;
+  width: 70%;
+}
+
+
+@media screen and (min-width: 768px) {
+  /* tablet */
+
+}
+
+
+@media screen and (min-width: 1024px) {
+  /* desktop */
+  
+}
+
+@media screen and (min-width: 1200px) {
+  
 }

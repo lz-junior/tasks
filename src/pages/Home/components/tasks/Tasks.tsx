@@ -47,6 +47,7 @@ const Tasks: React.FC<TaskProps> = ({ listId })=> {
         <input
           type="text"
           placeholder="add a new list"
+          maxLength={50}
           className={classes.input_task}
           value={taskInput}
           onChange={(e)=> setTaskInput(e.target.value)}

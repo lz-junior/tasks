@@ -33,7 +33,7 @@ const List:React.FC<ListProps> = ({ lists })=> {
             onClick={()=>toogleTasks(index)}>
               {list.name}
           </li>
-          <div>
+          <div className={classes.div_tasks}>
             {openTaskIndex === index ? <Tasks listId={list.id}/> : null}
           </div>
         </div>
