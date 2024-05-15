@@ -13,7 +13,7 @@
   display: flex;
    flex-direction: column;
    align-items: center;
-  margin-top: 20%;
+  margin-top: 15%;
 }
 
 .form > h2 {
@@ -79,26 +79,6 @@
 
 @media screen and (min-width: 768px) {
   /* tablet */
-  /* .title-login {
-    color: red;
-  } */
-
-  .form {
-    margin-top: 5%;
-  }
-  .form > input {
-    width: 60%;
-    height: 48px;
-  }
-}
-
-
-@media screen and (min-width: 1024px) {
-  /* desktop */
-  /* .title-login {
-    color: green;
-  } */
-
   .form {
     margin-top: 7%;
   }
@@ -116,20 +96,14 @@
   .btn-login-create-forgot {
     font-size: 1.2rem;
   }
-
-  .icons {
-    display: flex;
-    justify-content: center;
-    gap: 100px;
-    margin-top: 82px;
-  }
+}
 
 
+@media screen and (min-width: 1024px) {
+  /* desktop */
 
 }
 
 @media screen and (min-width: 1200px) {
-  /* .title-login {
-    color: blue;
-  } */
+
 }
