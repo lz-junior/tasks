@@ -22,10 +22,11 @@
 }
 .li {
   padding: 5px;
-  border-radius: 4px;
   width: 95%;
   text-decoration: none;
   list-style-type: none;
+  font-size: 1.2rem;
+  border-radius: 4px;
   background-color: #fff;
 }
 
@@ -40,6 +41,7 @@
   padding: 6px;
   border: none;
   border-radius: 5px;
+  font-size: 1.2rem;
   background-color: #ffffff80;
 }
 .btn_submit {
