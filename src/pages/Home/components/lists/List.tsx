@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Tasks from '../tasks/Tasks';
 import classes from './listItem.module.css'
+import { FaTrash } from "react-icons/fa";
 
 
 interface List {
@@ -32,6 +33,7 @@ const List:React.FC<ListProps> = ({ lists })=> {
             className={classes.list_item} 
             onClick={()=>toogleTasks(index)}>
               {list.name}
+              <button className={classes.btn_list_item}><FaTrash/></button>
           </li>
           <div className={classes.div_tasks}>
             {openTaskIndex === index ? <Tasks listId={list.id}/> : null}
