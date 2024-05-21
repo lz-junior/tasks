@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { addTask } from "../../../../redux/taskReducer";
+import { addTask, deleteList } from "../../../../redux/taskReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../../redux/store";
 
 import { IoIosAddCircleOutline } from "react-icons/io";
+import { FaTrash } from "react-icons/fa";
 import classes from "./tasks.module.css"
 
 
@@ -38,8 +39,19 @@ const Tasks: React.FC<TaskProps> = ({ listId })=> {
       <h3>Tasks</h3>
       
       <ul className={classes.ul}>
-        {tasks.map((task) => {
-          return <li key={task.id} className={classes.li}>{task.name}</li>
+        {tasks.map((task, index) => {
+          return (
+            <div>
+              <li key={task.id} className={classes.li}>
+                {task.name}
+                <button 
+                  className={classes.btn_delete}
+                  onClick={()=> deleteList(index)}>
+                    <FaTrash/>
+                </button>
+              </li>
+            </div>
+          )
         })}
       </ul>
 

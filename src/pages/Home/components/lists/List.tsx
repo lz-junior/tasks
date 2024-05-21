@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState, AppDispatch } from '../../../../redux/store';
+import { deleteList } from '../../../../redux/taskReducer';
 import Tasks from '../tasks/Tasks';
-import classes from './listItem.module.css'
+import classes from './listItem.module.css';
 import { FaTrash } from "react-icons/fa";
 
 
@@ -14,8 +17,10 @@ interface ListProps {
 }
 
 
-const List:React.FC<ListProps> = ({ lists })=> {
+const List:React.FC<ListProps> = ()=> {
   const [openTaskIndex, setOpenTaskIndex] = useState<number | undefined>();
+  const lists = useSelector((state:RootState) => state.tasks.lists);
+  const dispatch: AppDispatch = useDispatch();
 
   const toogleTasks = (index:number)=> {
     if (openTaskIndex === index) {
@@ -24,6 +29,9 @@ const List:React.FC<ListProps> = ({ lists })=> {
       setOpenTaskIndex(index)
     }
   };
+  const deleteItem = (index:any)=> {
+    dispatch(deleteList(index))
+  }
 
   return (
     <ul className={classes.container}>
@@ -33,8 +41,12 @@ const List:React.FC<ListProps> = ({ lists })=> {
             className={classes.list_item} 
             onClick={()=>toogleTasks(index)}>
               {list.name}
-              <button className={classes.btn_list_item}><FaTrash/></button>
           </li>
+          <button 
+            className={classes.btn_list_item}
+            onClick={()=>deleteItem(list.id)}>
+              <FaTrash/>
+          </button>
           <div className={classes.div_tasks}>
             {openTaskIndex === index ? <Tasks listId={list.id}/> : null}
           </div>

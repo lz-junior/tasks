@@ -39,10 +39,13 @@ const taskSlice = createSlice({
         listId: action.payload.listId,
       };
       state.tasks.push(newTask)
-    }
+    },
+    deleteList: (state, action: PayloadAction<number>) => {
+      state.lists = state.lists.filter(list => list.id !== action.payload);
+    },
     // Outros reducers para tarefas, como editar ou remover, podem ser adicionados aqui
   },
 });
 
-export const { addList, addTask } = taskSlice.actions;
+export const { addList, addTask, deleteList } = taskSlice.actions;
 export default taskSlice.reducer;

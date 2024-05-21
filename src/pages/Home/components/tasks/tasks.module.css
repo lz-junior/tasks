@@ -20,7 +20,11 @@
   margin-top: 8px;
   margin-bottom: 12px;
 }
+
 .li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 5px;
   width: 95%;
   text-decoration: none;
@@ -29,6 +33,14 @@
   border-radius: 4px;
   background-color: #fff;
 }
+
+.btn_delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+
 
 .form {
   display: flex;
