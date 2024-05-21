@@ -15,18 +15,23 @@
 
 .ul { 
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+   flex-direction: column;
+   gap: 8px;
   margin-top: 8px;
   margin-bottom: 12px;
 }
 
+.content {
+  display: flex;
+   gap: 10px;
+}
+
 .li {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+   flex-direction: row;
+   justify-content: space-between;
   padding: 5px;
-  width: 95%;
+  width: 92%;
   text-decoration: none;
   list-style-type: none;
   font-size: 1.2rem;
@@ -39,8 +44,6 @@
   border: none;
   cursor: pointer;
 }
-
-
 
 .form {
   display: flex;

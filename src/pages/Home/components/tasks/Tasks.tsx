@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { addTask, deleteList } from "../../../../redux/taskReducer";
+import { addTask, deleteTask } from "../../../../redux/taskReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../../redux/store";
 
@@ -33,23 +33,27 @@ const Tasks: React.FC<TaskProps> = ({ listId })=> {
     }
   };
 
+  const deleteItem = (index:number) => {
+    dispatch(deleteTask(index));
+  };
+
 
   return (
     <div className={classes.container}>
       <h3>Tasks</h3>
       
       <ul className={classes.ul}>
-        {tasks.map((task, index) => {
+        {tasks.map((task) => {
           return (
-            <div>
+            <div className={classes.content}>
               <li key={task.id} className={classes.li}>
                 {task.name}
-                <button 
-                  className={classes.btn_delete}
-                  onClick={()=> deleteList(index)}>
-                    <FaTrash/>
-                </button>
               </li>
+              <button 
+                className={classes.btn_delete}
+                onClick={()=> deleteItem(task.id)}>
+                  <FaTrash style={{ color: 'blue' }} />
+              </button>
             </div>
           )
         })}

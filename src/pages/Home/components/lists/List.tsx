@@ -29,27 +29,32 @@ const List:React.FC<ListProps> = ()=> {
       setOpenTaskIndex(index)
     }
   };
-  const deleteItem = (index:any)=> {
+  const deleteItem = (index:number)=> {
     dispatch(deleteList(index))
   }
 
   return (
     <ul className={classes.container}>
       {lists.map((list, index) => (
-        <div key={list.id} className={classes.div_item}>
-          <li 
-            className={classes.list_item} 
-            onClick={()=>toogleTasks(index)}>
-              {list.name}
-          </li>
-          <button 
-            className={classes.btn_list_item}
-            onClick={()=>deleteItem(list.id)}>
-              <FaTrash/>
-          </button>
+        <div key={list.id} className={classes.content}>
+          
+          <div className={classes.div_item}>
+            <li 
+              className={classes.list_item} 
+              onClick={()=>toogleTasks(index)}>
+                {list.name}
+            </li>
+            <button 
+              className={classes.btn_delete}
+              onClick={()=>deleteItem(list.id)}>
+                <FaTrash/>
+            </button>
+          </div>
+
           <div className={classes.div_tasks}>
             {openTaskIndex === index ? <Tasks listId={list.id}/> : null}
           </div>
+
         </div>
       ))}
     </ul>
