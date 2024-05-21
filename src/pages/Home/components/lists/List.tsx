@@ -4,7 +4,7 @@ import { RootState, AppDispatch } from '../../../../redux/store';
 import { deleteList } from '../../../../redux/taskReducer';
 import Tasks from '../tasks/Tasks';
 import classes from './listItem.module.css';
-import { FaTrash } from "react-icons/fa";
+import { GoTrash } from "react-icons/go";
 
 
 interface List {
@@ -47,7 +47,7 @@ const List:React.FC<ListProps> = ()=> {
             <button 
               className={classes.btn_delete}
               onClick={()=>deleteItem(list.id)}>
-                <FaTrash/>
+                <GoTrash/>
             </button>
           </div>
 

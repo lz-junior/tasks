@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../../redux/store";
 
 import { IoIosAddCircleOutline } from "react-icons/io";
-import { FaTrash } from "react-icons/fa";
+import { GoTrash } from "react-icons/go";
 import classes from "./tasks.module.css"
 
 
@@ -52,7 +52,7 @@ const Tasks: React.FC<TaskProps> = ({ listId })=> {
               <button 
                 className={classes.btn_delete}
                 onClick={()=> deleteItem(task.id)}>
-                  <FaTrash style={{ color: 'blue' }} />
+                  <GoTrash style={{ color: 'blue' }} />
               </button>
             </div>
           )
